@@ -45,9 +45,8 @@ body::before {
     align-items: center;
 
     position: relative;
-    width: 500px;
     max-width: 100%;
-    height: 500px;
+    min-height: 500px;
     padding: 10px;
 }
 
@@ -140,6 +139,7 @@ body::before {
     min-height: 30px;
     border-radius: 8px;
     padding:20px;
+    margin-top: 30px;
     margin-bottom: auto;
 }
 
@@ -159,5 +159,36 @@ body::before {
 .form-block .features ul li:last-of-type{
     margin-bottom: 0px;
 }
+
+
+/* Responsive */
+@media screen and (max-width: 415px) {
+    .form-block h1{
+       font-size: 65px;
+       margin-bottom: auto;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+    .form-block h1{
+       font-size: 65px;
+       display: flex;
+       justify-content: center;
+       flex-direction: column;
+       margin-bottom: 30px;
+    }
+
+    .form-block .internal input{
+        width: 100%;
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .form-block .internal button {
+        height: 45px;
+    }
+}
+
 
 
