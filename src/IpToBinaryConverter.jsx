@@ -38,7 +38,11 @@ function IpToBinaryConverter() {
     
     window.onload = function() {
         const input = document.querySelector('input'), btn = document.querySelector('#submit'), body = document.querySelector('body');    
-        input.focus();
+        
+
+        setTimeout(() => {
+            input.focus();
+        }, 1000);
         
         configFocus(true);
     };
