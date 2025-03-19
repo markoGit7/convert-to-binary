@@ -39,20 +39,22 @@ function IpToBinaryConverter() {
     window.onload = function() {
         const input = document.querySelector('input'), btn = document.querySelector('#submit'), body = document.querySelector('body');    
         
-
-        setTimeout(() => {
-            input.focus();
-        }, 1000);
+        input.focus();
         
         configFocus(true);
     };
 
 
+    function virtualKeys() {//Function for reading keys on moblie keyboard 
+        
+    };
+
+
+
     function press(e) {//Function for event handeling on key press
         let input = document.querySelector('input');
         let value = e.target.value;
-        
-        
+
         if(e.key === 'Enter' && value !== '') {
             
             solve();
@@ -97,7 +99,7 @@ function IpToBinaryConverter() {
 
         }
 
-        
+
     };
 
 
