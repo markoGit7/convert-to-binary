@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Still Time';
+    src: url('./assets/fonts/Still Time.woff2') format('woff2'),
+         url('./assets/fonts/Still Time.woff') format('woff'),
+         url('./assets/fonts/Still Time.ttf') format('truetype'),
+         url('./assets/fonts/Still Time.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./assets/images/background.jpg');
+    height: 100dvh;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Viewport width */
+    height: 100vh; /* Viewport height */
+    background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.5) 100%); /* Adjust colors and percentages */
+    pointer-events: none; /* Prevent overlay from interfering with clicks */
+    z-index: 10; /* Ensure it's on top */
+}
+
+
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+    height: 500px;
+    padding: 10px;
+}
+
+.form-block h1{
+    margin-bottom: auto;
+    font-family: 'Still Time';
+    font-size: 70px;
+    color: white;
+    text-shadow:
+        -2px -2px 0 black,
+        2px -2px 0 black,
+        -2px 2px 0 black,
+        2px 2px 0 black;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-block h1 span{
+    display: inline-block;
+    padding: 0 10px 0 15px;
+}
+
+.form-block .internal {
+    display: flex;
+    position: relative;
+    z-index: 50;
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.form-block .internal input{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    color: black;
+    outline: none;
+    border: 5px solid black;
+    font-size: 18px;
+    border-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    box-shadow: -2px 5px 0px 2px rgba(0,0,0,1);
+    padding:0 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.form-block .internal input::placeholder{
+    color: rgba(0, 0, 0, .35);
+}
+
+.form-block .internal button{
+    width: 80px;
+    height: 50px;
+    max-width: 100%;
+    background-color: white;
+    color: black;
+    outline: none;
+    border: 5px solid black;
+    font-size: 18px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: -2px 5px 0px 2px rgba(0,0,0,1);
+    transition: all 0.3s ease-in-out;
+}
+
+.focus {
+    border: 5px solid #00b341!important;
+    box-shadow: -2px 5px 0px 2px #00b341!important;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-block .internal button .fa-solid,
+.form-block .internal button .fa-square-check{
+    font-size: 30px;
+}
+
+.form-block .internal button.focus:hover .fa-solid,
+.form-block .internal button.focus:hover .fa-square-check{
+    color: #00b341;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.form-block .features{
+    width: 100%;
+    background-color: white;
+    box-shadow: -2px 5px 0px 2px rgba(0,0,0,1);
+    min-height: 30px;
+    border-radius: 8px;
+    padding:20px;
+    margin-bottom: auto;
+}
+
+.form-block .features h2{
+    margin-bottom: 10px;
+}
+
+.form-block .features ul{
+    font-size: 16px;
+}
+
+.form-block .features ul li{
+    margin-bottom: 8px;
+}
+
+
+.form-block .features ul li:last-of-type{
+    margin-bottom: 0px;
+}
+
+
