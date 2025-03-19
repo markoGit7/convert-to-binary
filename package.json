@@ -1,6 +1,6 @@
 {
   "name": "create-binary",
-  "homepage": "https://markoGit7.github.io/convert-to-binary",
+  "homepage": "https://markoGit7.github.io/convert-to-binary/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
