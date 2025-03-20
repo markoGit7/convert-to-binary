@@ -45,8 +45,31 @@ function IpToBinaryConverter() {
     };
 
 
-    function virtualKeys() {//Function for reading keys on moblie keyboard 
+
+
+
+    function mobile() {
+        let input = document.querySelector('input');
         
+
+        input.addEventListener('input', function(event) {
+            let value = event.target.value;
+            
+            
+            if (value === '') {
+              return;
+            }
+
+           
+            let newStr = value.replace(/\./g, ' ');
+
+            let allSeparators = (newStr.split(' '));
+
+            
+            
+
+
+        });
     };
 
 
@@ -54,7 +77,7 @@ function IpToBinaryConverter() {
     function press(e) {//Function for event handeling on key press
         let input = document.querySelector('input');
         let value = e.target.value;
-
+        
         if(e.key === 'Enter' && value !== '') {
             
             solve();
@@ -65,40 +88,34 @@ function IpToBinaryConverter() {
         } else if(e.key === ' ') {
 
             e.preventDefault();
-
-            let s = value.split('');
-            let befElm = s[s.length - 1];
-            let maxdot = '';
-
-            //NEW added part for giving limit to when there is 3 dots to cant add another one
-            s.forEach(elm => {
-                
-                if(elm === '.') {
-                    maxdot += '.';
-                }
-                
-            });
-
-            if(maxdot.length > 2) {
-                return;
-            }
             
-            
-            if(befElm === '.') {
-                return;
-            }
-            console.log(s);
-            
-            if(value === '') {
-                return;
-            }
+            if(value === '') return;
 
             value += '.';
 
+            let lastEntered = value.slice(-1);
+            let beforelastEntered = value[value.length - 2];
+            let allSeparators = (value.split('.')).length;
+            
+            
+            
+
+            if((lastEntered === ' ' || lastEntered === '.') && (beforelastEntered === ' ' || beforelastEntered === '.')) {
+                return;
+            }
+
+            if(allSeparators > 4) {
+                // alert(`You have 4 octats, that's the limit`);
+                return;
+            }
+
+            
+            
             input.value = value;
 
         }
 
+        mobile();//Protorype how the space will work on phone
 
     };
 
@@ -148,7 +165,7 @@ function IpToBinaryConverter() {
   
         for (let i = 0; i < cut.length; i++) {
             let octet = Number(cut[i]);
-            console.log(octet);
+            
             let exist = isExisting(octet);
             let s = null,
             target = 0;
@@ -165,7 +182,6 @@ function IpToBinaryConverter() {
                 s = j;
                 s = Math.pow(2, s);
                 
-                console.log(exist);
 
                 if (exist) {
                     octet === s ? (res += '1') : (res += '0');
@@ -221,9 +237,8 @@ function IpToBinaryConverter() {
             </div>
 
             <div className='features'>
-                <h2>Features: </h2>
+                <h2>Features: <span className='branch'>@Desktop</span></h2>
                 <ul>
-                    <li>The purpos is to convert set of numbers(octets) into 0's and 1's</li>
                     <li>By clicking <b>SPACE</b> you add <b>.</b></li>
                     <li>By clicking <b>ENTER</b> you get resul</li>
                 </ul>
