@@ -46,7 +46,7 @@ function IpToBinaryConverter() {
 
 
 
-    const inputJoin = (input) => {
+    const inputJoin = (input) => {//Function for removing the extra space before the dot ex: "". > .
         input.value += '.';
         let j = input.value.replace(/\s*\.\s*/g, '.');
         return j;
@@ -54,28 +54,28 @@ function IpToBinaryConverter() {
 
 
 
-    function mobile() {
+    function dotInsert() {//Function for inserting dots when "Space Bar" has been clicked
         let input = document.querySelector('input');
 
         input.addEventListener('input', function(event) {
             let value = event.target.value;
             let lastEntered = value.slice(-1);
 
-            if (value === ' ') {
+            if (value === ' ') {//If input has no value, Space Bar has been clicked, don't do anything
                 event.target.value = value.replace(' ', '');
                 return;
             }
             
-            if(lastEntered === ' ') {
+            if(lastEntered === ' ') {//If the current entered input value is ' ' do the following instructions
                 let beforelastEntered = value[value.length - 2];
 
-                if(beforelastEntered === '.') {
+                if(beforelastEntered === '.') {// Multiple dots in a row blocker
                     event.target.value = value.replace(' ', '');
                     return;
                 }
 
                 
-                if(input.value.includes('.')) {//I stoped with working here, next thing to make is limitation
+                if(input.value.includes('.')) {// Limitation
                     let allSeparators = (input.value.split('.')).length;
                     
                     if(allSeparators === 4) {
@@ -109,37 +109,9 @@ function IpToBinaryConverter() {
 
             configFocus(false);
 
-        } else if(e.key === ' ') {
-
-            // e.preventDefault();
-            
-            // if(value === '') return;
-
-            // value += '.';
-
-            // let lastEntered = value.slice(-1);
-            // let beforelastEntered = value[value.length - 2];
-            // let allSeparators = (value.split('.')).length;
-            
-            
-            
-
-            // if((lastEntered === ' ' || lastEntered === '.') && (beforelastEntered === ' ' || beforelastEntered === '.')) {
-            //     return;
-            // }
-
-            // if(allSeparators > 4) {
-            //     // alert(`You have 4 octats, that's the limit`);
-            //     return;
-            // }
-
-            
-            
-            // input.value = value;
-
         }
 
-        mobile();//Protorype how the space will work on phone
+        dotInsert();
 
     };
 
@@ -261,7 +233,7 @@ function IpToBinaryConverter() {
             </div>
 
             <div className='features'>
-                <h2>Features: <span className='branch'>@Desktop</span></h2>
+                <h2>Features:</h2>
                 <ul>
                     <li>By clicking <b>SPACE</b> you add <b>.</b></li>
                     <li>By clicking <b>ENTER</b> you get resul</li>
