@@ -218,28 +218,35 @@ function IpToBinaryConverter() {
 
   
     return (
-        <section className='form-block'>
-            <h1>192 <span><i class="fa-solid fa-rotate"></i></span> 11000000</h1>
-            <div className='internal'>
-                <input
-                type="text"
-                onFocus={() => configFocus(true)} 
-                onBlur={() => configFocus(false)}
-                onKeyDown={(e) => press(e)} 
-                onChange={(e) => setN(e.target.value)}
-                placeholder='Enter IP Address (e.g., 192.168.1.1)'
-                />
-                <button id='submit' onClick={solve}><FontAwesomeIcon icon="fa-solid fa-square-check" /></button>
-            </div>
+        <>
+            <section className='form-block'>
+                <h1>192 <span><i class="fa-solid fa-rotate"></i></span> 11000000</h1>
+                <div className='internal'>
+                    <input
+                    type="text"
+                    onFocus={() => configFocus(true)} 
+                    onBlur={() => configFocus(false)}
+                    onKeyDown={(e) => press(e)} 
+                    onChange={(e) => setN(e.target.value)}
+                    placeholder='Enter IP Address (e.g., 192.168.1.1)'
+                    />
+                    <button id='submit' onClick={solve}><FontAwesomeIcon icon="fa-solid fa-square-check" /></button>
+                </div>
 
-            <div className='features'>
-                <h2>Features:</h2>
-                <ul>
-                    <li>By clicking <b>SPACE</b> you add <b>.</b></li>
-                    <li>By clicking <b>ENTER</b> you get resul</li>
-                </ul>
+                <div className='features'>
+                    <h2>Features:</h2>
+                    <ul>
+                        <li>By clicking <b>SPACE</b> you add <b>.</b></li>
+                        <li>By clicking <b>ENTER</b> you get resul</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div className='version'>
+                Version: 1.0.0
             </div>
-        </section>
+        </>
+        
     );
 }
 export default IpToBinaryConverter;
