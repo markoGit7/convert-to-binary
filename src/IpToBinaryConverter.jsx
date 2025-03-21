@@ -46,26 +46,50 @@ function IpToBinaryConverter() {
 
 
 
+    const inputJoin = (input) => {
+        input.value += '.';
+        let j = input.value.replace(/\s*\.\s*/g, '.');
+        return j;
+    };
+
 
 
     function mobile() {
         let input = document.querySelector('input');
-        
 
         input.addEventListener('input', function(event) {
             let value = event.target.value;
-            
-            
-            if (value === '') {
-              return;
+            let lastEntered = value.slice(-1);
+
+            if (value === ' ') {
+                event.target.value = value.replace(' ', '');
+                return;
             }
-
-           
-            let newStr = value.replace(/\./g, ' ');
-
-            let allSeparators = (newStr.split(' '));
-
             
+            if(lastEntered === ' ') {
+                let beforelastEntered = value[value.length - 2];
+
+                if(beforelastEntered === '.') {
+                    event.target.value = value.replace(' ', '');
+                    return;
+                }
+
+                
+                if(input.value.includes('.')) {//I stoped with working here, next thing to make is limitation
+                    let allSeparators = (input.value.split('.')).length;
+                    
+                    if(allSeparators === 4) {
+                        event.target.value = value.replace(' ', '');
+                        return;
+                    }
+                }
+                
+                let joined = inputJoin(input);
+                
+                input.value = joined;
+                
+                
+            }
             
 
 
@@ -87,31 +111,31 @@ function IpToBinaryConverter() {
 
         } else if(e.key === ' ') {
 
-            e.preventDefault();
+            // e.preventDefault();
             
-            if(value === '') return;
+            // if(value === '') return;
 
-            value += '.';
+            // value += '.';
 
-            let lastEntered = value.slice(-1);
-            let beforelastEntered = value[value.length - 2];
-            let allSeparators = (value.split('.')).length;
+            // let lastEntered = value.slice(-1);
+            // let beforelastEntered = value[value.length - 2];
+            // let allSeparators = (value.split('.')).length;
             
             
             
 
-            if((lastEntered === ' ' || lastEntered === '.') && (beforelastEntered === ' ' || beforelastEntered === '.')) {
-                return;
-            }
+            // if((lastEntered === ' ' || lastEntered === '.') && (beforelastEntered === ' ' || beforelastEntered === '.')) {
+            //     return;
+            // }
 
-            if(allSeparators > 4) {
-                // alert(`You have 4 octats, that's the limit`);
-                return;
-            }
+            // if(allSeparators > 4) {
+            //     // alert(`You have 4 octats, that's the limit`);
+            //     return;
+            // }
 
             
             
-            input.value = value;
+            // input.value = value;
 
         }
 
